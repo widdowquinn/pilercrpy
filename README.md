@@ -16,7 +16,7 @@ Download from this repository and install using the code below:
 
 ```bash
 git clone git@github.com:widdowquinn/pilercrpy.git
-cd piler-crpy
+cd pilercrpy
 python setup.py install
 ```
 

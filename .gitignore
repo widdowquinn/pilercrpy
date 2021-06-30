@@ -6,3 +6,4 @@
 
 # Ignore Python caching
 __pycache__/
+.ipynb_checkpoints/
