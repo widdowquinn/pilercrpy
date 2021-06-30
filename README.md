@@ -95,16 +95,19 @@ The `pilercrpy.read_unique_spacers_to_dfm()` function will read a directory of `
 ```python
 >>> dfm = pilercrpy.read_unique_spacers_to_dfm(Path("tests/fixtures/pilercr_output/"))
 >>> dfm
-                         AAAATCCGCACGGATGCACTGAAAAAGGAAAT  ...  TTTGTCCTTGAGCCTGACCGCTTCCGCCATCG
-filename                                                   ...                                  
-14205wC5_DM9_07.fasta                                   1  ...                                 0
-2168.fasta                                              1  ...                                 0
-22873wB2_SCRI1030.fasta                                 0  ...                                 0
-22873wG1_SCRI1027.fasta                                 0  ...                                 0
-22873wG6_SCRI1113.fasta                                 0  ...                                 0
-6146.fasta                                              0  ...                                 0
-7383.fasta                                              0  ...                                 0
-DM48-09.fasta                                           0  ...                                 1
+filename                          14205wC5_DM9_07.fasta  2168.fasta  22873wB2_SCRI1030.fasta  ...  6146.fasta  7383.fasta  DM48-09.fasta
+spacer                                                                                        ...                                       
+TTTGTCCTTGAGCCTGACCGCTTCCGCCATCG                      0           0                        0  ...           0           0              1
+TTTATCGTACCAACACGATCCTGAGTACTGGA                      0           0                        0  ...           1           0              1
+TTGCTTTAACAACCACCGTCTGAACTCACTGT                      1           1                        0  ...           0           0              0
+TTGCGATTGGCACCGTTAACCGCTCAGTGACC                      0           0                        1  ...           0           0              0
+TTGAAATTAGTGACGTGAGCAGAATCGTAAAC                      1           1                        0  ...           0           0              1
+...                                                 ...         ...                      ...  ...         ...         ...            ...
+AACTGAATAAACTCGACTCAACGCAAGATGCA                      0           0                        1  ...           1           0              0
+AACCGTCGCTCGCTGGCCACTGTACGATTCGC                      3           3                        0  ...           0           0              1
+AACACGCCGCGCGATTTTGTCCACAATGCGCA                      1           1                        0  ...           0           0              1
+AAATCAGCCAGCAACTCATCAGGGTTTACCTC                      0           0                        1  ...           1           0              0
+AAAATCCGCACGGATGCACTGAAAAAGGAAAT                      1           1                        0  ...           0           0              0
 
-[8 rows x 118 columns]
+[118 rows x 8 columns]
 ```
