@@ -15,7 +15,7 @@ It provides a parser to aid processing `PILER-CR` output files. We plan to add h
 Download from this repository and install using the code below:
 
 ```bash
-git clone
+git clone git@github.com:widdowquinn/pilercrpy.git
 cd piler-crpy
 python setup.py install
 ```
