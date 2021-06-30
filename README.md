@@ -4,6 +4,8 @@ This repository contains a Python package for working with the `PILER-CR` CRISPR
 
 - [`PILER-CR`](http://www.drive5.com/pilercr/)
 
+> Edgar, R.C. PILER-CR: Fast and accurate identification of CRISPR repeats. BMC Bioinformatics 8, 18 (2007). [https://doi.org/10.1186/1471-2105-8-18](https://doi.org/10.1186/1471-2105-8-18)
+
 It provides a parser to aid processing `PILER-CR` output files. We plan to add helper functions for running the prediction tool and processing its output.
 
 ---------------------------
