@@ -77,3 +77,34 @@ Counter({'AACCGTCGCTCGCTGGCCACTGTACGATTCGC': 3, ..., 'TGTAGCCCGA': 1})
 >>> array.repeats  # repeat sequence representation
 ['..........A.................', ..., '............................']
 ```
+
+### Read a directory of `PILER-CR` output files
+
+The `pilercrpy.read_arraydir()` function will read a directory of `PILER-CR` output files and return a dictionary, keyed by file path, containing a list of `PilerArray` objects for the corresponding file.
+
+```python
+>>> arrays = pilercrpy.read_arraydir(Path("tests/fixtures/pilercr_output/"))
+>>> arrays
+{PosixPath('tests/fixtures/pilercr_output/22873wG6_SCRI1113.fasta.pilercr'): [<pilercrpy.piler.PilerArray object at 0x7fc0103a1820>], ..., PosixPath('tests/fixtures/pilercr_output/22873wB2_SCRI1030.fasta.pilercr'): [<pilercrpy.piler.PilerArray object at 0x7fc011fc4d90>, <pilercrpy.piler.PilerArray object at 0x7fc011fc87f0>]}
+```
+
+### Count unique spacer sequences in a directory of `PILER-CR` output by filename
+
+The `pilercrpy.read_unique_spacers_to_dfm()` function will read a directory of `PILER-CR` output files and return a `Pandas` dataframe with counts of each unique spacer sequence.
+
+```python
+>>> dfm = pilercrpy.read_unique_spacers_to_dfm(Path("tests/fixtures/pilercr_output/"))
+>>> dfm
+                         AAAATCCGCACGGATGCACTGAAAAAGGAAAT  ...  TTTGTCCTTGAGCCTGACCGCTTCCGCCATCG
+filename                                                   ...                                  
+14205wC5_DM9_07.fasta                                   1  ...                                 0
+2168.fasta                                              1  ...                                 0
+22873wB2_SCRI1030.fasta                                 0  ...                                 0
+22873wG1_SCRI1027.fasta                                 0  ...                                 0
+22873wG6_SCRI1113.fasta                                 0  ...                                 0
+6146.fasta                                              0  ...                                 0
+7383.fasta                                              0  ...                                 0
+DM48-09.fasta                                           0  ...                                 1
+
+[8 rows x 118 columns]
+```

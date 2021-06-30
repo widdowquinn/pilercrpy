@@ -38,3 +38,4 @@
 __version__ = "v0.1a"
 
 from .parser import parse, read  # noqa: F401
+from .utils import read_arraydir, read_unique_spacers_to_dfm  # noqa: F401

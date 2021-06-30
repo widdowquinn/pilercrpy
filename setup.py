@@ -92,7 +92,9 @@ setuptools.setup(
     packages=setuptools.find_packages(),
     # package_data={},
     include_package_date=True,
-    install_requires=[],
+    install_requires=[
+        "pandas",
+    ],
     classifiers=[
         "Development Status :: 4 - Beta",
         "Environment :: Console",

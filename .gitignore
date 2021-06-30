@@ -3,3 +3,6 @@
 
 # Ignore Python packaging files
 *.egg-info
+
+# Ignore Python caching
+__pycache__/
