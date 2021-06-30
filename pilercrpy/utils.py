@@ -124,12 +124,13 @@ def read_unique_spacers_to_dfm(
                     processed
 
     Processes each PILER-CR output file in the passed directory,
-    returning a dataframe with filenames as row labels, unique spacer
-    sequences as columns, and cells containing the count of each spacer
+    returning a dataframe with filenames as column labels, unique spacer
+    sequences as rows, and cells containing the count of each spacer
     in the corresponding file.
     """
     arraydict = read_arraydir(dirpath, filext)
-    dfm = build_arraydf(arraydict)
-    dfm = dfm[sorted(dfm.columns)].sort_values("filename")
+    dfm = build_arraydf(arraydict).T
+    dfm.index = dfm.index.rename("spacer")
+    dfm = dfm[sorted(dfm.columns)].sort_values("spacer", ascending=False)
 
     return dfm
