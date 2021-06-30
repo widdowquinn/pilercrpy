@@ -1,0 +1,5 @@
+# Ignore local editor config
+.vscode/
+
+# Ignore Python packaging files
+*.egg-info

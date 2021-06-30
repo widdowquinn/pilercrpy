@@ -1,0 +1,122 @@
+Help on reading this report
+===========================
+
+This report has three sections: Detailed, Summary by Similarity
+and Summary by Position.
+
+The detailed section shows each repeat in each putative
+CRISPR array.
+
+The summary sections give one line for each array.
+
+An 'array' is a contiguous sequence of CRISPR repeats
+looking like this:
+
+    REPEAT Spacer REPEAT Spacer REPEAT ... Spacer REPEAT
+
+Within one array, repeats have high similarity and spacers
+are, roughly speaking, unique within a window around the array.
+In a given array, each repeat has a similar length, and each
+spacer has a similar length. With default parameters, the
+algorithm allows a fair amount of variability in order to
+maximize sensitivity. This may allow identification of
+inactive ("fossil") arrays, and may in rare cases also
+induce false positives due to other classes of repeats
+such as microsatellites, LTRs and arrays of RNA genes.
+
+
+Columns in the detailed section are:
+
+  Pos               Sequence position, starting at 1 for the first base.
+  Repeat            Length of the repeat.
+  %id               Identity with the consensus sequence.
+  Spacer            Length of spacer to the right of this repeat.
+  Left flank        10 bases to the left of this repeat.
+  Repeat            Sequence of this repeat.
+                      Dots indicate positions where this repeat
+                      agrees with the consensus sequence below.
+  Spacer            Sequence of spacer to the right of this repeat,
+                      or 10 bases if this is the last repeat.
+
+The left flank sequence duplicates the end of the spacer for the preceding
+repeat; it is provided to facilitate visual identification of cases
+where the algorithm does not correctly identify repeat endpoints.
+
+At the end of each array there is a sub-heading that gives the average
+repeat length, average spacer length and consensus sequence.
+
+Columns in the summary sections are:
+
+  Array             Number 1, 2 ... referring back to the detailed report.
+  Sequence          FASTA label of the sequence. May be truncated.
+  From              Start position of array.
+  To                End position of array.
+  # copies          Number of repeats in the array.
+  Repeat            Average repeat length.
+  Spacer            Average spacer length.
+  +                 +/-, indicating orientation relative to first array in group.
+  Distance          Distance from previous array.
+  Consensus         Consensus sequence.
+
+In the Summary by Similarity section, arrays are grouped by similarity of their
+consensus sequences. If consensus sequences are sufficiently similar, they are
+aligned to each other to indicate probable relationships between arrays.
+
+In the Summary by Position section, arrays are sorted by position within the
+input sequence file.
+
+The Distance column facilitates identification of cases where a single
+array has been reported as two adjacent arrays. In such a case, (a) the
+consensus sequences will be similar or identical, and (b) the distance
+will be approximately a small multiple of the repeat length + spacer length.
+
+Use the -noinfo option to turn off this help.
+Use the -help option to get a list of command line options.
+
+pilercr v1.06
+By Robert C. Edgar
+
+tests/fixtures/sequences/22873wG1_SCRI1027.fasta: 1 putative CRISPR arrays found.
+
+
+
+DETAIL REPORT
+
+
+
+Array 1
+>NODE_4_length_472620_cov_36.2903
+
+       Pos  Repeat     %id  Spacer  Left flank    Repeat                          Spacer
+==========  ======  ======  ======  ==========    ============================    ======
+    172983      28    96.4      32  ATCTCGCGTG    ..........A.................    TTGAAATTAGTGACGTGAGCAGAATCGTAAAC
+    173043      28   100.0      32  AATCGTAAAC    ............................    CGATACTCGGATACGCTCCCAGACCTTATCGA
+    173103      28    96.4      32  ACCTTATCGA    ................G...........    AACACGCCGCGCGATTTTGTCCACAATGCGCA
+    173163      28    96.4      32  ACAATGCGCA    ................G...........    TGTCGAGCGCTGATTCGTCGGTCACTGGATAC
+    173223      28    96.4      32  CACTGGATAC    ................G...........    TCCATAGTCCTCGGAAGGGACGACGATGTGAC
+    173283      28   100.0      32  ACGATGTGAC    ............................    CATTAATTGACGTCTCTCTATCAATTATCTGT
+    173343      28   100.0      32  AATTATCTGT    ............................    CCGAGCCTGTATTACAGGTGGTTATGGCGACA
+    173403      28   100.0          TATGGCGACA    ............................    ACGCTTGATATTGCTTATGGCGTGTTAGTTCAT
+==========  ======  ======  ======  ==========    ============================
+         8      28              32                TTTCTAAGCTGCCTGTACGGCAGTGAAC
+
+
+SUMMARY BY SIMILARITY
+
+
+
+Array          Sequence    Position      Length  # Copies  Repeat  Spacer  +  Consensus
+=====  ================  ==========  ==========  ========  ======  ======  =  =========
+    1  NODE_4_length_47      172983         448         8      28      32  +  TTTCTAAGCTGCCTGTACGGCAGTGAAC
+
+
+
+SUMMARY BY POSITION
+
+
+
+>NODE_4_length_472620_cov_36.2903
+
+Array          Sequence    Position      Length  # Copies  Repeat  Spacer    Distance  Consensus
+=====  ================  ==========  ==========  ========  ======  ======  ==========  =========
+    1  NODE_4_length_47      172983         448         8      28      32              TTTCTAAGCTGCCTGTACGGCAGTGAAC
