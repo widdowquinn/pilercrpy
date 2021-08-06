@@ -107,6 +107,8 @@ def parse(handle: TextIO):
                     data[6],
                 )
             else:  # last spacer
+                if len(data) < 6:
+                    data.append("")
                 array.add_spacer(  # type: ignore
                     int(data[0]),
                     int(data[1]),
